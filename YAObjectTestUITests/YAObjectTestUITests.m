@@ -1,6 +1,6 @@
 //
-//  testUITests.m
-//  testUITests
+//  YAObjectTestUITests.m
+//  YAObjectTestUITests
 //
 //  Created by lanjiying on 2018/3/29.
 //  Copyright © 2018年 lanjiying_Anna. All rights reserved.
