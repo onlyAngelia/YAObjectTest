@@ -10,6 +10,4 @@
 
 @interface BlockObject : NSObject
 
-
-
 @end
