@@ -106,7 +106,7 @@ struct __AtAutoreleasePool {
 };
 
 #define __OFFSETOFIVAR__(TYPE, MEMBER) ((long long) &((TYPE *)0)->MEMBER)
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_n__p6qtc6t91tgcqk06x_s9b84w0000gn_T_BlockObject_71f296_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"%d",2};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_n__p6qtc6t91tgcqk06x_s9b84w0000gn_T_BlockObject_eb071d_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"%d",2};
 
 
 
@@ -95585,6 +95585,8 @@ struct BlockObject_IMPL {
 };
 
 
+// + (void)testPramsBlock:(void(^)(void))paramBlock;
+
 /* @end */
 
 typedef struct objc_method *Method;
@@ -95979,25 +95981,26 @@ extern "C" __attribute__((visibility("default"))) id (*_zoneCopy)(id, size_t, vo
 extern "C" __attribute__((visibility("default"))) void (*_error)(id, const char *, va_list) __attribute__((unavailable));
 
 
-struct __blockTest_block_impl_0 {
+struct __globalBlock_block_impl_0 {
   struct __block_impl impl;
-  struct __blockTest_block_desc_0* Desc;
-  __blockTest_block_impl_0(void *fp, struct __blockTest_block_desc_0 *desc, int flags=0) {
+  struct __globalBlock_block_desc_0* Desc;
+  __globalBlock_block_impl_0(void *fp, struct __globalBlock_block_desc_0 *desc, int flags=0) {
     impl.isa = &_NSConcreteGlobalBlock;
     impl.Flags = flags;
     impl.FuncPtr = fp;
     Desc = desc;
   }
 };
-static void __blockTest_block_func_0(struct __blockTest_block_impl_0 *__cself) {
+static void __globalBlock_block_func_0(struct __globalBlock_block_impl_0 *__cself) {
 }
 
-static struct __blockTest_block_desc_0 {
+static struct __globalBlock_block_desc_0 {
   size_t reserved;
   size_t Block_size;
-} __blockTest_block_desc_0_DATA = { 0, sizeof(struct __blockTest_block_impl_0)};
-static __blockTest_block_impl_0 __global_blockTest_block_impl_0((void *)__blockTest_block_func_0, &__blockTest_block_desc_0_DATA);
-void(*blockTest)(void) =((void (*)())&__global_blockTest_block_impl_0);
+} __globalBlock_block_desc_0_DATA = { 0, sizeof(struct __globalBlock_block_impl_0)};
+static __globalBlock_block_impl_0 __global_globalBlock_block_impl_0((void *)__globalBlock_block_func_0, &__globalBlock_block_desc_0_DATA);
+void(*globalBlock)(void) =((void (*)())&__global_globalBlock_block_impl_0);
+typedef void(*defineGlobalBlock)(int);
 
 // @interface BlockObject()
 
@@ -96007,6 +96010,21 @@ void(*blockTest)(void) =((void (*)())&__global_blockTest_block_impl_0);
 
 // @implementation BlockObject
 
+
+static instancetype _I_BlockObject_init(BlockObject * self, SEL _cmd) {
+    self = ((BlockObject *(*)(__rw_objc_super *, SEL))(void *)objc_msgSendSuper)((__rw_objc_super){(id)self, (id)class_getSuperclass(objc_getClass("BlockObject"))}, sel_registerName("init"));
+    if (self) {
+
+
+
+
+
+        ((void (*)(id, SEL))(void *)objc_msgSend)((id)self, sel_registerName("blockTestAllkindsofCase"));
+
+
+    }
+    return self;
+}
 struct __Block_byref_a_0 {
   void *__isa;
 __Block_byref_a_0 *__forwarding;
@@ -96015,71 +96033,90 @@ __Block_byref_a_0 *__forwarding;
  int a;
 };
 
-struct __BlockObject__init_block_impl_0 {
+struct __BlockObject__blockTestAllkindsofCase_block_impl_0 {
   struct __block_impl impl;
-  struct __BlockObject__init_block_desc_0* Desc;
-  __Block_byref_a_0 *a; // by ref
-  __BlockObject__init_block_impl_0(void *fp, struct __BlockObject__init_block_desc_0 *desc, __Block_byref_a_0 *_a, int flags=0) : a(_a->__forwarding) {
+  struct __BlockObject__blockTestAllkindsofCase_block_desc_0* Desc;
+  __BlockObject__blockTestAllkindsofCase_block_impl_0(void *fp, struct __BlockObject__blockTestAllkindsofCase_block_desc_0 *desc, int flags=0) {
     impl.isa = &_NSConcreteStackBlock;
     impl.Flags = flags;
     impl.FuncPtr = fp;
     Desc = desc;
   }
 };
-static void __BlockObject__init_block_func_0(struct __BlockObject__init_block_impl_0 *__cself) {
+static void __BlockObject__blockTestAllkindsofCase_block_func_0(struct __BlockObject__blockTestAllkindsofCase_block_impl_0 *__cself) {
+
+
+    }
+
+static struct __BlockObject__blockTestAllkindsofCase_block_desc_0 {
+  size_t reserved;
+  size_t Block_size;
+} __BlockObject__blockTestAllkindsofCase_block_desc_0_DATA = { 0, sizeof(struct __BlockObject__blockTestAllkindsofCase_block_impl_0)};
+
+struct __BlockObject__blockTestAllkindsofCase_block_impl_1 {
+  struct __block_impl impl;
+  struct __BlockObject__blockTestAllkindsofCase_block_desc_1* Desc;
+  __BlockObject__blockTestAllkindsofCase_block_impl_1(void *fp, struct __BlockObject__blockTestAllkindsofCase_block_desc_1 *desc, int flags=0) {
+    impl.isa = &_NSConcreteStackBlock;
+    impl.Flags = flags;
+    impl.FuncPtr = fp;
+    Desc = desc;
+  }
+};
+static void __BlockObject__blockTestAllkindsofCase_block_func_1(struct __BlockObject__blockTestAllkindsofCase_block_impl_1 *__cself, int count) {
+
+
+    }
+
+static struct __BlockObject__blockTestAllkindsofCase_block_desc_1 {
+  size_t reserved;
+  size_t Block_size;
+} __BlockObject__blockTestAllkindsofCase_block_desc_1_DATA = { 0, sizeof(struct __BlockObject__blockTestAllkindsofCase_block_impl_1)};
+
+struct __BlockObject__blockTestAllkindsofCase_block_impl_2 {
+  struct __block_impl impl;
+  struct __BlockObject__blockTestAllkindsofCase_block_desc_2* Desc;
+  __Block_byref_a_0 *a; // by ref
+  __BlockObject__blockTestAllkindsofCase_block_impl_2(void *fp, struct __BlockObject__blockTestAllkindsofCase_block_desc_2 *desc, __Block_byref_a_0 *_a, int flags=0) : a(_a->__forwarding) {
+    impl.isa = &_NSConcreteStackBlock;
+    impl.Flags = flags;
+    impl.FuncPtr = fp;
+    Desc = desc;
+  }
+};
+static void __BlockObject__blockTestAllkindsofCase_block_func_2(struct __BlockObject__blockTestAllkindsofCase_block_impl_2 *__cself) {
   __Block_byref_a_0 *a = __cself->a; // bound by ref
 
-            NSLog((NSString *)&__NSConstantStringImpl__var_folders_n__p6qtc6t91tgcqk06x_s9b84w0000gn_T_BlockObject_71f296_mi_0,(a->__forwarding->a));
-        }
-static void __BlockObject__init_block_copy_0(struct __BlockObject__init_block_impl_0*dst, struct __BlockObject__init_block_impl_0*src) {_Block_object_assign((void*)&dst->a, (void*)src->a, 8/*BLOCK_FIELD_IS_BYREF*/);}
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_n__p6qtc6t91tgcqk06x_s9b84w0000gn_T_BlockObject_eb071d_mi_0,(a->__forwarding->a));
+    }
+static void __BlockObject__blockTestAllkindsofCase_block_copy_2(struct __BlockObject__blockTestAllkindsofCase_block_impl_2*dst, struct __BlockObject__blockTestAllkindsofCase_block_impl_2*src) {_Block_object_assign((void*)&dst->a, (void*)src->a, 8/*BLOCK_FIELD_IS_BYREF*/);}
 
-static void __BlockObject__init_block_dispose_0(struct __BlockObject__init_block_impl_0*src) {_Block_object_dispose((void*)src->a, 8/*BLOCK_FIELD_IS_BYREF*/);}
+static void __BlockObject__blockTestAllkindsofCase_block_dispose_2(struct __BlockObject__blockTestAllkindsofCase_block_impl_2*src) {_Block_object_dispose((void*)src->a, 8/*BLOCK_FIELD_IS_BYREF*/);}
 
-static struct __BlockObject__init_block_desc_0 {
+static struct __BlockObject__blockTestAllkindsofCase_block_desc_2 {
   size_t reserved;
   size_t Block_size;
-  void (*copy)(struct __BlockObject__init_block_impl_0*, struct __BlockObject__init_block_impl_0*);
-  void (*dispose)(struct __BlockObject__init_block_impl_0*);
-} __BlockObject__init_block_desc_0_DATA = { 0, sizeof(struct __BlockObject__init_block_impl_0), __BlockObject__init_block_copy_0, __BlockObject__init_block_dispose_0};
+  void (*copy)(struct __BlockObject__blockTestAllkindsofCase_block_impl_2*, struct __BlockObject__blockTestAllkindsofCase_block_impl_2*);
+  void (*dispose)(struct __BlockObject__blockTestAllkindsofCase_block_impl_2*);
+} __BlockObject__blockTestAllkindsofCase_block_desc_2_DATA = { 0, sizeof(struct __BlockObject__blockTestAllkindsofCase_block_impl_2), __BlockObject__blockTestAllkindsofCase_block_copy_2, __BlockObject__blockTestAllkindsofCase_block_dispose_2};
 
-static instancetype _I_BlockObject_init(BlockObject * self, SEL _cmd) {
-    self = ((BlockObject *(*)(__rw_objc_super *, SEL))(void *)objc_msgSendSuper)((__rw_objc_super){(id)self, (id)class_getSuperclass(objc_getClass("BlockObject"))}, sel_registerName("init"));
-    if (self) {
+static void _I_BlockObject_blockTestAllkindsofCase(BlockObject * self, SEL _cmd) {
 
-        __attribute__((__blocks__(byref))) __Block_byref_a_0 a = {(void*)0,(__Block_byref_a_0 *)&a, 0, sizeof(__Block_byref_a_0), 0};
-        void (*lockBlock)(void) = ((void (*)())&__BlockObject__init_block_impl_0((void *)__BlockObject__init_block_func_0, &__BlockObject__init_block_desc_0_DATA, (__Block_byref_a_0 *)&a, 570425344));
 
-        ((void (*)(id, SEL, void (*)()))(void *)objc_msgSend)((id)self, sel_registerName("testPramsBlock:"), (void (*)())lockBlock);
 
-    }
-    return self;
+
+
+    (*(void (**)())((char *)self + OBJC_IVAR_$_BlockObject$_testBlock)) = ((void (*)())&__BlockObject__blockTestAllkindsofCase_block_impl_0((void *)__BlockObject__blockTestAllkindsofCase_block_func_0, &__BlockObject__blockTestAllkindsofCase_block_desc_0_DATA));
+    NSInteger blockOut = 1;
+
+    defineGlobalBlock block = ((void (*)(int))&__BlockObject__blockTestAllkindsofCase_block_impl_1((void *)__BlockObject__blockTestAllkindsofCase_block_func_1, &__BlockObject__blockTestAllkindsofCase_block_desc_1_DATA));
+    __attribute__((__blocks__(byref))) __Block_byref_a_0 a = {(void*)0,(__Block_byref_a_0 *)&a, 0, sizeof(__Block_byref_a_0), 0};
+    void (*lockBlock)(void) = ((void (*)())&__BlockObject__blockTestAllkindsofCase_block_impl_2((void *)__BlockObject__blockTestAllkindsofCase_block_func_2, &__BlockObject__blockTestAllkindsofCase_block_desc_2_DATA, (__Block_byref_a_0 *)&a, 570425344));
+    ((void (*)(__block_impl *))((__block_impl *)lockBlock)->FuncPtr)((__block_impl *)lockBlock);
 }
 
-struct __BlockObject__testMallocBlock_block_impl_0 {
-  struct __block_impl impl;
-  struct __BlockObject__testMallocBlock_block_desc_0* Desc;
-  __BlockObject__testMallocBlock_block_impl_0(void *fp, struct __BlockObject__testMallocBlock_block_desc_0 *desc, int flags=0) {
-    impl.isa = &_NSConcreteStackBlock;
-    impl.Flags = flags;
-    impl.FuncPtr = fp;
-    Desc = desc;
-  }
-};
-static void __BlockObject__testMallocBlock_block_func_0(struct __BlockObject__testMallocBlock_block_impl_0 *__cself) {
+static void _C_BlockObject_testPramsBlock_(Class self, SEL _cmd, void (*paramBlock)()) {
 
-    }
-
-static struct __BlockObject__testMallocBlock_block_desc_0 {
-  size_t reserved;
-  size_t Block_size;
-} __BlockObject__testMallocBlock_block_desc_0_DATA = { 0, sizeof(struct __BlockObject__testMallocBlock_block_impl_0)};
-
-static void _C_BlockObject_testMallocBlock(Class self, SEL _cmd) {
-    void (*lockBlock)(void) = ((void (*)())&__BlockObject__testMallocBlock_block_impl_0((void *)__BlockObject__testMallocBlock_block_func_0, &__BlockObject__testMallocBlock_block_desc_0_DATA));
-}
-
-
-static void _I_BlockObject_testPramsBlock_(BlockObject * self, SEL _cmd, void (*paramBlock)()) {
     ((void (*)(__block_impl *))((__block_impl *)paramBlock)->FuncPtr)((__block_impl *)paramBlock);
 }
 
@@ -96177,7 +96214,7 @@ static struct /*_method_list_t*/ {
 	sizeof(_objc_method),
 	4,
 	{{(struct objc_selector *)"init", "@16@0:8", (void *)_I_BlockObject_init},
-	{(struct objc_selector *)"testPramsBlock:", "v24@0:8@?16", (void *)_I_BlockObject_testPramsBlock_},
+	{(struct objc_selector *)"blockTestAllkindsofCase", "v16@0:8", (void *)_I_BlockObject_blockTestAllkindsofCase},
 	{(struct objc_selector *)"testBlock", "@?16@0:8", (void *)_I_BlockObject_testBlock},
 	{(struct objc_selector *)"setTestBlock:", "v24@0:8@?16", (void *)_I_BlockObject_setTestBlock_}}
 };
@@ -96189,7 +96226,7 @@ static struct /*_method_list_t*/ {
 } _OBJC_$_CLASS_METHODS_BlockObject __attribute__ ((used, section ("__DATA,__objc_const"))) = {
 	sizeof(_objc_method),
 	1,
-	{{(struct objc_selector *)"testMallocBlock", "v16@0:8", (void *)_C_BlockObject_testMallocBlock}}
+	{{(struct objc_selector *)"testPramsBlock:", "v24@0:8@?16", (void *)_C_BlockObject_testPramsBlock_}}
 };
 
 static struct _class_ro_t _OBJC_METACLASS_RO_$_BlockObject __attribute__ ((used, section ("__DATA,__objc_const"))) = {

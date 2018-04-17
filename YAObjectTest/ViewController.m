@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "BlockObject.h"
 @interface ViewController ()
 
 @end
@@ -16,9 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self testBlock];
 }
-
+- (void)testBlock
+{
+    [[BlockObject alloc] init];
+    [BlockObject testPramsBlock:^{}];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
