@@ -20,7 +20,7 @@
 }
 - (void)testBlock
 {
-    [[BlockObject alloc] init];
+    BlockObject *blockObject =  [[BlockObject alloc] init];
     [BlockObject testPramsBlock:^{}];
 }
 

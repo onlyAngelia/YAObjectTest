@@ -54,13 +54,11 @@ typedef void(^defineGlobalBlock)(int);
     };
     __block int a = 0;
     void (^lockBlock)(void) = ^{
-        a++;
     };
     lockBlock();
 }
 + (void)testPramsBlock:(void(^)(void))paramBlock
 {
-    
     paramBlock();
 }
 @end
