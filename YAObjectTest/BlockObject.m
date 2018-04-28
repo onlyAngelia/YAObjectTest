@@ -9,11 +9,11 @@
 #import "BlockObject.h"
 #import <objc/runtime.h>
 
-void(^globalBlock)(void);
+void(^globalBlock)(void)=^{};
 
 @interface BlockObject()
 
-@property(nonatomic, copy)void(^testBlock)(void);
+@property(nonatomic, copy)void(^proBlock)(void);
 
 @end
 @implementation BlockObject
@@ -48,10 +48,10 @@ void(^globalBlock)(void);
 - (void)testBlockKinds
 {
       // 调用时候不引入外部变量
-    globalBlock = ^(){
-        
-    };
-    _testBlock = ^(){
+//    globalBlock = ^(){
+//
+//    };
+    _proBlock= ^(){
         
     };
     
