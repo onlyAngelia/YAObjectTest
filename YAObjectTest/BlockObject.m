@@ -9,8 +9,7 @@
 #import "BlockObject.h"
 #import <objc/runtime.h>
 
-void(^globalBlock)(void)=^{};
-void(^noOutSideVariableBlock)(NSInteger count);
+void (^globalBlock)(void)=^{};
 
 @interface BlockObject()
 
@@ -44,11 +43,8 @@ void(^noOutSideVariableBlock)(NSInteger count);
 }
 - (void)testBlockKinds
 {
-    noOutSideVariableBlock = ^(NSInteger count){
-      
-    };
-    
-    _proBlock= ^(){
+    //函数内声明block
+    _proBlock = ^(){
         
     };
     
