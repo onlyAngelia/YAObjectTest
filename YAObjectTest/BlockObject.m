@@ -23,17 +23,22 @@ static int count = 100;
     self = [super init];
     if (self) {
         
+        [self initProperties];
         [self blockTestAllkindsofCase];
         
     }
     return self;
 }
-- (void)blockTestAllkindsofCase
+- (void)initProperties
 {
     _outsideCount = 0;
+}
+- (void)blockTestAllkindsofCase
+{
+    
     [self testBlocksubstance];//1.第一步探究Block实质从init
     [self testBlockKinds];//2.探究block类型
-
+    [self testBlockAutomaticInterceptVar];//3.探究自动截获变量
 }
 - (void)testBlocksubstance
 {
@@ -78,6 +83,7 @@ static int count = 100;
         a++;
     };
     lockBlock();
+    NSLog(@"%@", lockBlock);
 }
 + (void)testPramsBlock:(void(^)(void))paramBlock
 {
