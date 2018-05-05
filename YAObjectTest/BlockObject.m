@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 
 void (^globalBlock)(void)=^{};
-
+static int count = 100;
 @interface BlockObject()
 
 @property(nonatomic, copy)void(^proBlock)(void);
@@ -43,7 +43,18 @@ void (^globalBlock)(void)=^{};
 }
 - (void)testBlockKinds
 {
-    //函数内声明block
+    //只引用外部静态变量的block也是GlobalBlock
+    typedef int (^blockStatic)(void);
+    blockStatic blk = ^(){
+        return count;
+    };
+     NSLog(@"%@",blk);
+    //不使用外部截获变量
+    blockStatic secondBlk = ^(){
+        return 1;
+    };
+    NSLog(@"%@",secondBlk);
+    
     _proBlock = ^(){
         
     };

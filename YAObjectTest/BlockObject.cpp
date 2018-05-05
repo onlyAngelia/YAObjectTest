@@ -98417,7 +98417,7 @@ static struct __globalBlock_block_desc_0 {
 } __globalBlock_block_desc_0_DATA = { 0, sizeof(struct __globalBlock_block_impl_0)};
 static __globalBlock_block_impl_0 __global_globalBlock_block_impl_0((void *)__globalBlock_block_func_0, &__globalBlock_block_desc_0_DATA);
 void (*globalBlock)(void)=((void (*)())&__global_globalBlock_block_impl_0);
-
+static int count = 100;
 // @interface BlockObject()
 
 // @property(nonatomic, copy)void(^proBlock)(void);
@@ -98471,18 +98471,16 @@ static void _I_BlockObject_testBlocksubstance(BlockObject * self, SEL _cmd) {
 struct __BlockObject__testBlockKinds_block_impl_0 {
   struct __block_impl impl;
   struct __BlockObject__testBlockKinds_block_desc_0* Desc;
-  int a;
-  __BlockObject__testBlockKinds_block_impl_0(void *fp, struct __BlockObject__testBlockKinds_block_desc_0 *desc, int _a, int flags=0) : a(_a) {
+  __BlockObject__testBlockKinds_block_impl_0(void *fp, struct __BlockObject__testBlockKinds_block_desc_0 *desc, int flags=0) {
     impl.isa = &_NSConcreteStackBlock;
     impl.Flags = flags;
     impl.FuncPtr = fp;
     Desc = desc;
   }
 };
-static void __BlockObject__testBlockKinds_block_func_0(struct __BlockObject__testBlockKinds_block_impl_0 *__cself) {
-  int a = __cself->a; // bound by copy
+static int __BlockObject__testBlockKinds_block_func_0(struct __BlockObject__testBlockKinds_block_impl_0 *__cself) {
 
-        int count = a /10;
+        return count;
     }
 
 static struct __BlockObject__testBlockKinds_block_desc_0 {
@@ -98511,8 +98509,9 @@ static struct __BlockObject__testBlockKinds_block_desc_1 {
 } __BlockObject__testBlockKinds_block_desc_1_DATA = { 0, sizeof(struct __BlockObject__testBlockKinds_block_impl_1)};
 
 static void _I_BlockObject_testBlockKinds(BlockObject * self, SEL _cmd) {
-    int a = 100;
-    globalBlock= ((void (*)())&__BlockObject__testBlockKinds_block_impl_0((void *)__BlockObject__testBlockKinds_block_func_0, &__BlockObject__testBlockKinds_block_desc_0_DATA, a));
+
+    typedef int (*blockStatic)(void);
+    blockStatic blk = ((int (*)())&__BlockObject__testBlockKinds_block_impl_0((void *)__BlockObject__testBlockKinds_block_func_0, &__BlockObject__testBlockKinds_block_desc_0_DATA));
     (*(void (**)())((char *)self + OBJC_IVAR_$_BlockObject$_proBlock)) = ((void (*)())&__BlockObject__testBlockKinds_block_impl_1((void *)__BlockObject__testBlockKinds_block_func_1, &__BlockObject__testBlockKinds_block_desc_1_DATA));
 
 }
