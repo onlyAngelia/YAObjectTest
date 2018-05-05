@@ -74,10 +74,11 @@ static int count = 100;
         NSLog(@"%d",a);
     };
     NSLog(@"%@",_proBlock);
+    
     //autoBlock
-    __weak __block NSString *normalVar = @"test";
+    __weak typeof(&*self) weakSelf = self;
     void (^autoBlock)(void) = ^{
-        NSLog(@"%@",normalVar);
+        __strong strongSelf = weakSelf;
     };
     NSLog(@"%@",autoBlock);
 }
