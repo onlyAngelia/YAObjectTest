@@ -13,7 +13,7 @@ void (^globalBlock)(void)=^{};
 static int count = 100;
 @interface BlockObject()
 
-@property (nonatomic, weak)void(^proBlock)(void);
+@property (nonatomic, strong)void(^proBlock)(void);
 @property (nonatomic, assign)NSInteger outsideCount;
 
 @end
@@ -74,7 +74,12 @@ static int count = 100;
         NSLog(@"%d",a);
     };
     NSLog(@"%@",_proBlock);
-    
+    //autoBlock
+    __weak __block NSString *normalVar = @"test";
+    void (^autoBlock)(void) = ^{
+        NSLog(@"%@",normalVar);
+    };
+    NSLog(@"%@",autoBlock);
 }
 - (void)testBlockAutomaticInterceptVar
 {
