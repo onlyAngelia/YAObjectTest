@@ -13,7 +13,8 @@ void (^globalBlock)(void)=^{};
 static int count = 100;
 @interface BlockObject()
 
-@property(nonatomic, copy)void(^proBlock)(void);
+@property (nonatomic, weak)void(^proBlock)(void);
+@property (nonatomic, assign)NSInteger outsideCount;
 
 @end
 @implementation BlockObject
@@ -29,7 +30,7 @@ static int count = 100;
 }
 - (void)blockTestAllkindsofCase
 {
-    
+    _outsideCount = 0;
     [self testBlocksubstance];//1.第一步探究Block实质从init
     [self testBlockKinds];//2.探究block类型
 
@@ -49,15 +50,25 @@ static int count = 100;
         return count;
     };
      NSLog(@"%@",blk);
+    
     //不使用外部截获变量
     blockStatic secondBlk = ^(){
         return 1;
     };
     NSLog(@"%@",secondBlk);
     
-    _proBlock = ^(){
-        
+    
+    int a = 1;
+    //使用外部局部变量情况
+    void (^blockVariable)(void) = ^(){
+        NSLog(@"%ld",(long)_outsideCount);
     };
+    NSLog(@"%@",blockVariable);
+    
+    _proBlock = ^(){
+        NSLog(@"%d",a);
+    };
+    NSLog(@"%@",_proBlock);
     
 }
 - (void)testBlockAutomaticInterceptVar
