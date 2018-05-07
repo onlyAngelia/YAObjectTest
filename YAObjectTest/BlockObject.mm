@@ -28,6 +28,7 @@ static int count = 100;
         
         [self initProperties];
         [self blockTestAllkindsofCase];
+        [self testBlockAutomaticInterceptVar];
         
     }
     return self;
@@ -92,10 +93,15 @@ static int count = 100;
 }
 - (void)testBlockAutomaticInterceptVar
 {
-    __block int a = 0;
+    int a = 0;
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    NSString *testString = @"It is just a joke";
     void (^lockBlock)(void) = ^{
-        a++;
+        
+        NSLog(@"%@",testString);
+        
     };
+    NSLog(@"%@",mutableArray);
     lockBlock();
     NSLog(@"%@", lockBlock);
 }

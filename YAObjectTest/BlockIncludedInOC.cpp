@@ -13,7 +13,7 @@ int __attribute__((constructor))returnAutomaticPrivarty(){
     return 120;
 }
 
-void testAutoBlock(){
+void BlockIncludedInOC::testAutoBlock(){
     
     int * b=new int[4];
     __block int testCount = 100;
@@ -30,10 +30,10 @@ void testAutoBlock(){
     
 }
 
-void testFinalizingBlock(){
+void BlockIncludedInOC::testFinalizingBlock(){
     
 }
-void testWeakBlock(){
+void BlockIncludedInOC::testWeakBlock(){
     
     __block int x = 123;
     void (^printXandY)(int) = ^(int y) {
@@ -43,11 +43,12 @@ void testWeakBlock(){
     printXandY(456);
     std::cout<<printXandY<<std::endl;
 }
-int main()
-{
-    testAutoBlock();
-    testFinalizingBlock();
-    testWeakBlock();
-    
-    return 0;
-}
+//以下代码单独编译时放开
+//int main()
+//{
+//    testAutoBlock();
+//    testFinalizingBlock();
+//    testWeakBlock();
+//    
+//    return 0;
+//}
