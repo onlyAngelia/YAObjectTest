@@ -10,6 +10,4 @@
 
 @interface BlockObject : NSObject
 
-+ (void)testPramsBlock:(void(^)(void))paramBlock;
-
 @end

@@ -12,9 +12,11 @@
 #include <stdio.h>
 class BlockIncludedInOC
 {
+    
 public:
     void testAutoBlock();
     void testFinalizingBlock();
     void testWeakBlock();
+    
 };
 #endif /* BlockIncludedInOC_hpp */

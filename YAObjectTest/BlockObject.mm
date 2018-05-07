@@ -8,9 +8,12 @@
 
 #import "BlockObject.h"
 #import <objc/runtime.h>
+#import "BlockIncludedInOC.hpp"
 
+static BlockIncludedInOC *blockInCluded = NULL;
 void (^globalBlock)(void)=^{};
 static int count = 100;
+
 @interface BlockObject()
 
 @property (nonatomic, strong)void(^proBlock)(void);
@@ -75,11 +78,16 @@ static int count = 100;
     };
     NSLog(@"%@",_proBlock);
     
+    if (!blockInCluded) {
+        blockInCluded = new BlockIncludedInOC();
+    }
+    
+    
     //autoBlock
-    __weak typeof(&*self) weakSelf = self;
     void (^autoBlock)(void) = ^{
-        __strong strongSelf = weakSelf;
+      blockInCluded -> testAutoBlock();
     };
+    autoBlock();
     NSLog(@"%@",autoBlock);
 }
 - (void)testBlockAutomaticInterceptVar
@@ -91,8 +99,9 @@ static int count = 100;
     lockBlock();
     NSLog(@"%@", lockBlock);
 }
-+ (void)testPramsBlock:(void(^)(void))paramBlock
-{
-    paramBlock();
+- (void)dealloc{
+    if (blockInCluded) {
+        delete blockInCluded;
+    }
 }
 @end

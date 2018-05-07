@@ -21,7 +21,7 @@
 - (void)testBlock
 {
     BlockObject *blockObject =  [[BlockObject alloc] init];
-    [BlockObject testPramsBlock:^{}];
+//    [BlockObject testPramsBlock:^{}];
 }
 
 - (void)didReceiveMemoryWarning {
