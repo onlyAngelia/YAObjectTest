@@ -68,7 +68,7 @@ static int count = 100;
     
     
     int a = 1;
-    //使用外部局部变量情况
+    //使用外部其它变量情况
     void (^blockVariable)(void) = ^(){
         NSLog(@"%ld",(long)_outsideCount);
     };
