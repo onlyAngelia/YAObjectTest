@@ -16,7 +16,7 @@ static int count = 100;
 
 @interface BlockObject()
 
-@property (nonatomic, strong)void(^proBlock)(void);
+@property (nonatomic, weak)void(^proBlock)(void);
 @property (nonatomic, assign)NSInteger outsideCount;
 
 @end
@@ -56,6 +56,7 @@ static int count = 100;
     //只引用外部静态变量的block也是GlobalBlock
     typedef int (^blockStatic)(void);
     blockStatic blk = ^(){
+        count = 1000;
         return count;
     };
      NSLog(@"%@",blk);
