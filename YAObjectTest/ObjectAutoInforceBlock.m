@@ -17,12 +17,13 @@
     }
     return self;
 }
-- (void)testTheLastVarOfBlock_impl_0
+- (void)testTheLastVarOfBlockImpl
 {
-    NSString *string = @"Just for test";
+    NSString *testString = @"Just for test";
     void (^block)(void)= ^(){
-        NSLog(@"%@",string);
+        NSLog(@"%@",testString);
     };
+    block();
     
 }
 @end

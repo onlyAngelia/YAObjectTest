@@ -93,13 +93,11 @@ static int count = 100;
 }
 - (void)testBlockAutomaticInterceptVar
 {
-    int a = 0;
-    NSString *testString = @"It is just a joke";
+    __block int a = 0;
     void (^lockBlock)(void) = ^{
-        [testString stringByAppendingString:@"Yeah, I'm sure"];
+        a = 2;
     };
     lockBlock();
-    NSLog(@"%@",testString);
     NSLog(@"%@", lockBlock);
 }
 - (void)dealloc{
