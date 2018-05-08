@@ -94,15 +94,12 @@ static int count = 100;
 - (void)testBlockAutomaticInterceptVar
 {
     int a = 0;
-    NSMutableArray *mutableArray = [NSMutableArray array];
     NSString *testString = @"It is just a joke";
     void (^lockBlock)(void) = ^{
-        
-        NSLog(@"%@",testString);
-        
+        [testString stringByAppendingString:@"Yeah, I'm sure"];
     };
-    NSLog(@"%@",mutableArray);
     lockBlock();
+    NSLog(@"%@",testString);
     NSLog(@"%@", lockBlock);
 }
 - (void)dealloc{
